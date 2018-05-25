@@ -1,0 +1,14 @@
+{
+  "name": "jaypan/private-message-nodejs",
+  "description": "The Node.js backend for the Drupal Private Message Nodejs sub-module of the Private Message module.",
+  "require": {
+  },
+  "license": "GPL-2.0-or-later",
+  "type": "library",
+  "homepage": "https://www.drupal.org/private_message",
+  "authors": [{
+    "name": "Jaypan",
+    "homepage": "https://www.jaypan.com",
+    "role": "Creator, Developer, Maintainer"
+  }]
+}
