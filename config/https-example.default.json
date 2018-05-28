@@ -1,0 +1,12 @@
+{
+  "Connection": {
+    "dbConfig": {
+      "port": 8443
+    },
+    "https": {
+      "privateKey": "/path/to/privateKey.key",
+      "certificate": "/path/to/certificate.crt"
+    },
+    "secret": "Replace this with the value from the Private Message settings form"
+  }
+}
