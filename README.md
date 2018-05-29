@@ -17,7 +17,7 @@ Message settings form in Drupal, and copy the Nodejs secret value, to paste into
 default.json. If you are using https, you should start with port 8443, and if
 you are able to get that working, you can try other ports.
 
-5. Run `node index.js` from this directory. Note that you need to leave this
+5. Run `node app.js` from this directory. Note that you need to leave this
    program running for the module to work with Nodejs.
 
 
