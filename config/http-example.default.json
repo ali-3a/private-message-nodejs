@@ -3,7 +3,7 @@
     "dbConfig": {
       "port": 8080
     },
-    "http": false,
+    "https": false,
     "secret": "Replace this with the value from the Private Message settings form"
   }
 }
