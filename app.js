@@ -28,7 +28,7 @@
       return true;
     }
 
-    if (secret.length) {
+    if (secret && secret.length) {
       console.log('Invalid secret received. Expected: ' + secretKey + " Received: " + secret);
     }
     else {
