@@ -33,7 +33,7 @@
     if (secret && secret.length) {
       console.log('Invalid secret received. Expected: ' + secretKey + " Received: " + secret);
     }
-    else {
+    else if (!secret) {
       console.log('Secret not received. Please check Private Message configuration page in Drupal.');
     }
 
