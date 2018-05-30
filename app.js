@@ -3,10 +3,10 @@
  * Server-side Nodejs implementation to handle the private message module.
  */
 
-/*global require, console*/
+/*global require, console, process*/
 /*jslint white:true, this, browser:true, es6*/
 
-(function (require, console) {
+(function (require, console, process) {
   "use strict";
 
   const app = require('express');
@@ -14,6 +14,8 @@
   const https = require('https');
   const io = require('socket.io');
   const helmet = require('helmet');
+  // Set the configuration directory location.
+  process.env.NODE_CONFIG_DIR = '../config/';
   const config = require('config');
   const fs = require('fs');
 
@@ -222,4 +224,4 @@
     console.log('The server could not be started');
   }
 
-}(require, console));
+}(require, console, process));

@@ -8,16 +8,17 @@ Private Message module with Nodejs.
 1. Install Nodejs on your server.
 2. Navigate to the directory that this file resides in.
 3. Run `npm install` from this directory.
-4. Navigate to [VENDOR FOLDER]/jaypan/private-message-nodejs/config
+4. Create the folder [VENDOR FOLDER]/jaypan/config.
+5. Create the file [VENDOR FOLDER]/jaypan/config/default.json for the app.
 
-Create default.json by copying either http-example.default.json (for HTTP
-connections) or https-example.default.json (for HTTPS connections). Fill in all
+Create default.json by copying either `./http-example.default.json` (for HTTP
+connections) or `./https-example.default.json` (for HTTPS connections). Fill in all
 the values in the JSON file. Note that you will need to navigate to the Private
 Message settings form in Drupal, and copy the Nodejs secret value, to paste into
 default.json. If you are using https, you should start with port 8443, and if
 you are able to get that working, you can try other ports.
 
-5. Run `node app.js` from this directory. Note that you need to leave this
+6. Run `node app.js` from this directory. Note that you need to leave this
    program running for the module to work with Nodejs.
 
 
