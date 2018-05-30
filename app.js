@@ -193,6 +193,25 @@
     });
   });
 
+  // The private message status_report namespace. This namespace will be used to
+  // provides a status report for the server.
+  var statusReportChannel = ioSocket.of('/status_report');
+　statusReportChannel.on('connection', function (socket) {
+
+    console.log('user connected to status_report namespace');
+
+    socket.on('check secret', function (secret) {
+      console.log('Checking secret: ' + secret);
+      if (checkSecretValid(secret)) {
+        statusReportChannel.emit('check secret', 'Server running and correctly configured');
+      }
+      else {
+        statusReportChannel.emit('check secret', 'Server running but incorrectly configured');
+      }
+    });
+
+  });
+
   if (server) {
     server.listen(port, function () {
       console.log('listening on: ' + (httpsConfig ? 'https' : 'http'));
