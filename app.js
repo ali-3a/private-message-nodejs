@@ -23,9 +23,18 @@
 
   function checkSecretValid(secret) {
     if (secret === secretKey) {
+      console.log('Valid secret received');
+
       return true;
     }
-    console.log("Secret key incorrect or not set");
+
+    if (secret.length) {
+      console.log('Invalid secret received. Expected: ' + secretKey + " Received: " + secret);
+    }
+    else {
+      console.log('Secret not received. Please check Private Message configuration page in Drupal.');
+    }
+
     return false;
   }
 
