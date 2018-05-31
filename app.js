@@ -24,6 +24,7 @@
   const secretKey = config.get('Connection.secret');
 
   function checkSecretValid(secret) {
+    console.log('Checking secret: ' + secret);
     if (secret === secretKey) {
       console.log('Valid secret received');
 
@@ -84,6 +85,10 @@
         // Join the room for the given thread.
         socket.join(threadId);
       }
+      else {
+        console.log('Emitting notification of bad secret to pm_thread');
+        threadChannel.emit('invalid secret', secret);
+      }
     });
 
     // Triggered when a new private message has been added to a thread.
@@ -93,6 +98,10 @@
         // Tell all users in the room that a new private message is ready to be
         // fetched.
         threadChannel.to(threadId).emit('new private message');
+      }
+      else {
+        console.log('Emitting notification of bad secret to pm_thread');
+        threadChannel.emit('invalid secret', secret);
       }
     });
 
@@ -117,6 +126,10 @@
         // Join the room for the given user.
         socket.join(uid);
       }
+      else {
+        console.log('Emitting notification of bad secret to pm_inbox');
+        inboxChannel.emit('invalid secret', secret);
+      }
     });
 
     // Triggered when a thread a user is a member of has been updated.
@@ -125,6 +138,10 @@
         console.log("triggering PM Inbox update for user: " + uid);
         // Tell the users inbox to update.
         inboxChannel.to(uid).emit('update pm inbox');
+      }
+      else {
+        console.log('Emitting notification of bad secret to pm_inbox');
+        inboxChannel.emit('invalid secret', secret);
       }
     });
 
@@ -148,6 +165,10 @@
         // Join the room for the given user.
         socket.join(user);
       }
+      else {
+        console.log('Emitting notification of bad secret to pm_notifications');
+        notficationBlockChannel.emit('invalid secret', secret);
+      }
     });
 
     // Triggered when a thread a user is a member of has been updated.
@@ -156,6 +177,10 @@
         console.log("triggering PM Notification update for user: " + uid);
         // Tell the users inbox to update.
         notficationBlockChannel.to(uid).emit('update pm unread thread count');
+      }
+      else {
+        console.log('Emitting notification of bad secret to pm_notifications');
+        notficationBlockChannel.emit('invalid secret', secret);
       }
     });
 
@@ -179,6 +204,10 @@
         // Join the room for the given user.
         socket.join(user);
       }
+      else {
+        console.log('Emitting notification of bad secret to pm_browser_notification');
+        browserNotificationChannel.emit('invalid secret', secret);
+      }
     });
 
     // Triggered when a thread a user is a member of has been updated.
@@ -187,6 +216,10 @@
         console.log("triggering browser notification for user: " + uid);
         // Trigger browser notifications of new messages.
         browserNotificationChannel.to(uid).emit('notify browser new message', message);
+      }
+      else {
+        console.log('Emitting notification of bad secret to pm_browser_notification');
+        browserNotificationChannel.emit('invalid secret', secret);
       }
     });
 
@@ -203,7 +236,6 @@
     console.log('user connected to status_report namespace');
 
     socket.on('check secret', function (secret) {
-      console.log('Checking secret: ' + secret);
       if (checkSecretValid(secret)) {
         statusReportChannel.emit('check secret', 'Server running and correctly configured');
       }
