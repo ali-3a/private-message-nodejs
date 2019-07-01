@@ -1,6 +1,7 @@
 {
   "name": "drupal-private-message-module-nodejs-backend",
   "version": "1.0.0",
+  "main" : "app.js",
   "description": "Drupal private message module server-side Nodejs script",
   "author": {
     "name": "Jay Friendly",
@@ -21,7 +22,10 @@
     "url": "https://git.drupal.org/project/private_message.git",
     "type": "git"
   },
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-2.0-or-later",  
+  "engines": {
+    "node": "^8"
+  },
   "keywords": [
     "Drupal",
     "Private Message"
