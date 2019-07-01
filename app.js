@@ -15,7 +15,7 @@
   const io = require('socket.io');
   const helmet = require('helmet');
   // Set the configuration directory location.
-  process.env.NODE_CONFIG_DIR = '../config/';
+  process.env.NODE_CONFIG_DIR = 'config/';
   const config = require('config');
   const fs = require('fs');
 
