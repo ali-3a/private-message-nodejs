@@ -1,0 +1,9 @@
+{
+  "Connection": {
+    "dbConfig": {
+      "port": 8080
+    },
+    "https": false,
+    "secret": "b3dc7f96044384b67304ccbdf4251642553a6357c2078c25f2ba4e47eeb4f38e"
+  }
+}
