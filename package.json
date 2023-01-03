@@ -10,7 +10,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "config": "^1.30.0",
+    "config": "^1.31.0",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "helmet": "^3.12.0",
